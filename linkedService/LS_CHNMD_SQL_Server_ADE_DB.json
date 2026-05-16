@@ -1,0 +1,17 @@
+{
+	"name": "LS_CHNMD_SQL_Server_ADE_DB",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "SqlServer",
+		"typeProperties": {
+			"server": "mysqlserverdev02.database.windows.net",
+			"database": "ADE_DB",
+			"encrypt": "mandatory",
+			"trustServerCertificate": false,
+			"authenticationType": "SQL",
+			"userName": "dbadmin",
+			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkRBVEFGQUNUT1JZQDhDNDMzMEQxLTQ5NTktNDhCMi1BOENFLUQwMjIxMDNERTY1MV85OGI1NTFjZS05NTU5LTQ5YTUtYWM1Yi1iN2Y3YzlmZmU4NGMiDQp9"
+		}
+	}
+}

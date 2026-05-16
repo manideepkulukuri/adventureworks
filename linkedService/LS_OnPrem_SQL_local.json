@@ -1,0 +1,21 @@
+{
+	"name": "LS_OnPrem_SQL_local",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "SqlServer",
+		"typeProperties": {
+			"server": "localhost",
+			"database": "AdventureWorksLT2025",
+			"encrypt": "mandatory",
+			"trustServerCertificate": true,
+			"authenticationType": "SQL",
+			"userName": "dbadminevn",
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiI2OWU2N2JkNS1jZjM5LTRhN2UtOGIwMS0wZTI0YjQwODBmZjYiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+		},
+		"connectVia": {
+			"referenceName": "SHIR-md",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}

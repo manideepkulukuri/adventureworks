@@ -1,0 +1,21 @@
+{
+	"name": "LS_CHNMD_OnPrem_SQL_Server_AdventureWorksLT2025",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "SqlServer",
+		"typeProperties": {
+			"server": "localhost",
+			"database": "AdventureWorksLT2025",
+			"encrypt": "mandatory",
+			"trustServerCertificate": true,
+			"authenticationType": "SQL",
+			"userName": "dbadminevn",
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiI0NDg2NWM3YS1mZGVjLTQwNWItYjEwNy0zZWI2MWRhMDkxNTMiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+		},
+		"connectVia": {
+			"referenceName": "SHIR-md",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}
