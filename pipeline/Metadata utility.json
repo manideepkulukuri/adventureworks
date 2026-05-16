@@ -134,12 +134,8 @@
 										"typeProperties": {
 											"source": {
 												"type": "AzureSqlSource",
-												"sqlReaderQuery": {
-													"value": "@concat('select * from ',item().table_name, ' where ', item().watermark_column,' > ''',item().last_watermark_value,'''')",
-													"type": "Expression"
-												},
-												"queryTimeout": "00:10:00",
-												"isolationLevel": "ReadUncommitted",
+												"sqlReaderQuery": "@concat(\n'select * from ',\nitem().table_name,\n' where ',\nitem().watermark_column,\n' > ''',\nitem().last_watermark_value,\n''''\n)",
+												"queryTimeout": "02:00:00",
 												"partitionOption": "None"
 											},
 											"sink": {
@@ -204,12 +200,8 @@
 										"typeProperties": {
 											"source": {
 												"type": "AzureSqlSource",
-												"sqlReaderQuery": {
-													"value": "@concat('select max(', item().watermark_column,') as latest_copied_date from ',item().table_name)",
-													"type": "Expression"
-												},
-												"queryTimeout": "00:10:00",
-												"isolationLevel": "ReadUncommitted",
+												"sqlReaderQuery": "@concat('select max(', item().watermark_column,') as latest_copied_date from ',item().table_name)",
+												"queryTimeout": "02:00:00",
 												"partitionOption": "None"
 											},
 											"dataset": {

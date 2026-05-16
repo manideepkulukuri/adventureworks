@@ -10,10 +10,7 @@
 		"schema": [],
 		"typeProperties": {
 			"schema": "",
-			"table": {
-				"value": "@dataset().tablename",
-				"type": "Expression"
-			}
+			"table": ""
 		}
 	}
 }
