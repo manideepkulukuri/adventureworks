@@ -18,7 +18,7 @@
 					"source": {
 						"type": "AzureSqlSource",
 						"sqlReaderQuery": {
-							"value": "select table_name, watermark_column, last_watermark_value from dbo.ADF_Watermark_Control_Eve",
+							"value": "select table_name, watermark_column, last_watermark_value, load_type,active_status from dbo.ADF_Watermark_Control_Eve",
 							"type": "Expression"
 						},
 						"queryTimeout": "00:10:00",
@@ -33,8 +33,8 @@
 				}
 			},
 			{
-				"name": "If Condition1",
-				"type": "IfCondition",
+				"name": "ForEach1",
+				"type": "ForEach",
 				"dependsOn": [
 					{
 						"activity": "watermarkdata",
@@ -45,36 +45,40 @@
 				],
 				"userProperties": [],
 				"typeProperties": {
-					"ifFalseActivities": [
+					"items": {
+						"value": "@activity('watermarkdata').output.value",
+						"type": "Expression"
+					},
+					"activities": [
 						{
-							"name": "Copy data2",
-							"type": "Copy",
-							"dependsOn": [],
-							"policy": {
-								"timeout": "0.12:00:00",
-								"retry": 0,
-								"retryIntervalInSeconds": 30,
-								"secureOutput": false,
-								"secureInput": false
-							},
-							"userProperties": [],
-							"typeProperties": {
-								"enableStaging": false
-							}
-						}
-					],
-					"ifTrueActivities": [
-						{
-							"name": "ForEach1",
-							"type": "ForEach",
+							"name": "If Condition2",
+							"type": "IfCondition",
 							"dependsOn": [],
 							"userProperties": [],
 							"typeProperties": {
-								"items": {
-									"value": "@activity('watermarkdata').output.value",
+								"expression": {
+									"value": "@equals(item().load_type,'increment')",
 									"type": "Expression"
 								},
-								"activities": [
+								"ifFalseActivities": [
+									{
+										"name": "Copy data3",
+										"type": "Copy",
+										"dependsOn": [],
+										"policy": {
+											"timeout": "0.12:00:00",
+											"retry": 0,
+											"retryIntervalInSeconds": 30,
+											"secureOutput": false,
+											"secureInput": false
+										},
+										"userProperties": [],
+										"typeProperties": {
+											"enableStaging": false
+										}
+									}
+								],
+								"ifTrueActivities": [
 									{
 										"name": "Copy data1",
 										"type": "Copy",
@@ -172,7 +176,7 @@
 												"referenceName": "DS_Source_adventureworks_generic",
 												"type": "DatasetReference"
 											},
-											"firstRowOnly": false
+											"firstRowOnly": true
 										}
 									},
 									{
@@ -203,7 +207,7 @@
 												{
 													"type": "Query",
 													"text": {
-														"value": "@concat('update dbo.adf_watermark_control_eve set last_watermark_value = ''',activity('Valuetobeupdated').output.value[0].latest_copied_date,''' where table_name = ''',item().table_name,'''')",
+														"value": "@concat('update dbo.adf_watermark_control_eve set last_watermark_value = ''',activity('Valuetobeupdated').output.firstRow.latest_copied_date,''' where table_name = ''',item().table_name,'''')",
 														"type": "Expression"
 													}
 												}
