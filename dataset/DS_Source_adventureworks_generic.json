@@ -1,0 +1,12 @@
+{
+	"name": "DS_Source_adventureworks_generic",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_CHNMD_Source_adventureworks_generic",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": []
+	}
+}
