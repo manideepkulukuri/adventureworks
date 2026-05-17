@@ -79,7 +79,10 @@
 												"typeProperties": {
 													"source": {
 														"type": "AzureSqlSource",
-														"sqlReaderQuery": "@concat(\n'select * from ',\nitem().table_name,\n' where ',\nitem().watermark_column,\n' > ''',\nitem().last_watermark_value,\n''''\n)",
+														"sqlReaderQuery": {
+															"value": "@concat(\n'select * from ',\nitem().table_name,\n' where ',\nitem().watermark_column,\n' > ''',\nitem().last_watermark_value,\n''''\n)",
+															"type": "Expression"
+														},
 														"queryTimeout": "02:00:00",
 														"partitionOption": "None"
 													},
@@ -112,15 +115,15 @@
 												],
 												"outputs": [
 													{
-														"referenceName": "DS_Sink_watermakr_csv",
+														"referenceName": "DS_Sink_metadatadriven_copy",
 														"type": "DatasetReference",
 														"parameters": {
-															"tablename": {
-																"value": "@item().table_name",
-																"type": "Expression"
-															},
 															"load_type": {
 																"value": "@item().load_type",
+																"type": "Expression"
+															},
+															"table_name": {
+																"value": "@item().table_name",
 																"type": "Expression"
 															}
 														}
@@ -149,7 +152,10 @@
 												"typeProperties": {
 													"source": {
 														"type": "AzureSqlSource",
-														"sqlReaderQuery": "@concat('select max(', item().watermark_column,') as latest_copied_date from ',item().table_name)",
+														"sqlReaderQuery": {
+															"value": "@concat('select max(', item().watermark_column,') as latest_copied_date from ',item().table_name)",
+															"type": "Expression"
+														},
 														"queryTimeout": "02:00:00",
 														"partitionOption": "None"
 													},
