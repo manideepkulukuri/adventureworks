@@ -5,16 +5,27 @@
 			"referenceName": "LS_CHNMD_ADLS_GEN2",
 			"type": "LinkedServiceReference"
 		},
+		"parameters": {
+			"load_type": {
+				"type": "string"
+			},
+			"table_name": {
+				"type": "string"
+			}
+		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
 				"fileName": {
-					"value": "@concat(utcNow(),'.csv')",
+					"value": "@concat(dataset().table_name,'_',utcNow(),'.csv')",
 					"type": "Expression"
 				},
-				"folderPath": "sink",
+				"folderPath": {
+					"value": "@concat(\ndataset().load_type,\n'/',\nreplace(dataset().table_name,'.','_')\n)",
+					"type": "Expression"
+				},
 				"fileSystem": "chnmd"
 			},
 			"columnDelimiter": ",",
