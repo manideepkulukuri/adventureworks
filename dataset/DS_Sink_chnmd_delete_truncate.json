@@ -1,0 +1,26 @@
+{
+	"name": "DS_Sink_chnmd_delete_truncate",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_CHNMD_ADLS_GEN2",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"load_type": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "Binary",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": {
+					"value": "@dataset().load_type",
+					"type": "Expression"
+				},
+				"fileSystem": "chnmd"
+			}
+		}
+	}
+}

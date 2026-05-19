@@ -300,7 +300,10 @@
 												"typeProperties": {
 													"source": {
 														"type": "AzureSqlSource",
-														"sqlReaderQuery": "@concat('select * from ', item().table_name)",
+														"sqlReaderQuery": {
+															"value": "@concat('select * from ', item().table_name)",
+															"type": "Expression"
+														},
 														"queryTimeout": "00:10:00",
 														"isolationLevel": "ReadUncommitted",
 														"partitionOption": "None"
@@ -363,15 +366,11 @@
 												"userProperties": [],
 												"typeProperties": {
 													"dataset": {
-														"referenceName": "DS_Sink_metadatadriven_copy",
+														"referenceName": "DS_Sink_chnmd_delete_truncate",
 														"type": "DatasetReference",
 														"parameters": {
 															"load_type": {
 																"value": "@item().load_type",
-																"type": "Expression"
-															},
-															"table_name": {
-																"value": "@item().table_name",
 																"type": "Expression"
 															}
 														}
