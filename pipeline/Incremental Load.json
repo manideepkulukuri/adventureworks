@@ -170,7 +170,7 @@
 							},
 							"userProperties": [],
 							"linkedServiceName": {
-								"referenceName": "LS_CHNMD_Source_adventureworks_generic",
+								"referenceName": "LS_Azure_SQL_Adv_Works",
 								"type": "LinkedServiceReference"
 							},
 							"typeProperties": {
@@ -190,6 +190,8 @@
 				}
 			}
 		],
-		"annotations": []
-	}
+		"annotations": [],
+		"lastPublishTime": "2026-05-28T16:42:18Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
 }

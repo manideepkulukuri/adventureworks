@@ -1,0 +1,15 @@
+{
+	"name": "ADETrainingADFLearn",
+	"properties": {
+		"trustModeClaimForMi": {
+			"value": "Disabled",
+			"editable": true
+		}
+	},
+	"location": "southindia",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "7355a393-f83e-4bac-84e6-bb38f9ebd5b2",
+		"tenantId": "5e33177c-6a36-4415-b513-6fead5bb5b31"
+	}
+}

@@ -1,5 +1,5 @@
 {
-	"name": "DS_Sink_ADLS_Customer_Transformed_CSV",
+	"name": "DS_Sink_ADLS_Customer_Transformed_CSV1",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "LS_ADLS_GEN2",
@@ -11,7 +11,7 @@
 			"location": {
 				"type": "AzureBlobFSLocation",
 				"fileName": "customer_transformed.csv",
-				"folderPath": "sink",
+				"folderPath": "partition",
 				"fileSystem": "chnmd"
 			},
 			"columnDelimiter": ",",

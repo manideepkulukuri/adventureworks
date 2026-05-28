@@ -2,15 +2,12 @@
 	"name": "DS_Source_adventureworks_generic",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "LS_CHNMD_Source_adventureworks_generic",
+			"referenceName": "LS_Azure_SQL_Adv_Works",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],
 		"type": "AzureSqlTable",
-		"schema": [],
-		"typeProperties": {
-			"schema": "",
-			"table": ""
-		}
-	}
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
 }

@@ -2,14 +2,11 @@
 	"name": "DS_Sink_watermakr_csv",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "LS_CHNMD_ADLS_GEN2",
+			"referenceName": "LS_ADLS_GEN2",
 			"type": "LinkedServiceReference"
 		},
 		"parameters": {
 			"tablename": {
-				"type": "string"
-			},
-			"load_type": {
 				"type": "string"
 			}
 		},
@@ -19,11 +16,11 @@
 			"location": {
 				"type": "AzureBlobFSLocation",
 				"fileName": {
-					"value": "@concat(dataset().tablename,'_',utcNow(),'.csv')",
+					"value": "@concat(utcNow(),'.csv')",
 					"type": "Expression"
 				},
 				"folderPath": {
-					"value": "@dataset().load_type",
+					"value": "@dataset().tablename",
 					"type": "Expression"
 				},
 				"fileSystem": "chnmd"
@@ -34,5 +31,6 @@
 			"quoteChar": "\""
 		},
 		"schema": []
-	}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
 }

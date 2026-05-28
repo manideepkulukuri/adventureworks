@@ -1,5 +1,5 @@
 {
-	"name": "DS_Azure_SQL_Customer",
+	"name": "DS_Azure_SQL_Customer1",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "LS_Azure_SQL_Adv_Works",
