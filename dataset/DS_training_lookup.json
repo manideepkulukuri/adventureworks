@@ -1,0 +1,12 @@
+{
+	"name": "DS_training_lookup",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_ADV_SQL",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": []
+	}
+}
